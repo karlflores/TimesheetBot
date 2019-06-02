@@ -106,7 +106,7 @@ update = function(payload){
 //update(test3)
 //getUserMessages("l-810")
 module.export = {
-		update:update,
+	update:update,
 	getUserMessages:getUserMessages,
 	deleteMessage:deleteMessage
 }

@@ -101,9 +101,10 @@ parseEntry = function(msg){
 		c1 = parseCodes(codes[0])
 		c2 = parseCodes(codes[1])
 		time = diffTime(parseTime(c1.time),parseTime(c2.time))
+		return {_cid,code1:parseTime(c1.time),code8:parseTime(c2.time)};	
 	}
 	//console.log(time)
-	return {_cid,code1:parseTime(c1.time),code8:parseTime(c2.time)};	
+	return {_cid,code1:parseTime(parseCodes(codes[0]).time),code8:undefined};	
 }
 
 createPayload = (msg) =>{
@@ -143,7 +144,7 @@ client.on('messageUpdate', (oldMsg,newMsg)=>{
 	// the contents of the body is a timesheet
 	msg = createPayload(newMsg)
 	update(msg)	
-	msg.reply("Patrol Entry Successfully Edited...")
+	oldMsg.reply("Patrol Entry Successfully Edited...")
 })
 
 client.on('messageDelete', (msg)=>{
@@ -151,7 +152,7 @@ client.on('messageDelete', (msg)=>{
 	
 	// we will only delete messages that have the right format
 	if(msg.content.search(formattingRE) === 0){
-			messageDelete(msg.id)
+			deleteMessage(msg.id)
 	}
 	msg.reply("Entry Successfully Deleted...")
 })
