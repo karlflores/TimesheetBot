@@ -1,4 +1,4 @@
-require('dotenv').config()
+//require('dotenv').config()
 require('./database_util.js')
 const Discord = require('discord.js')
 const client = new Discord.Client()
