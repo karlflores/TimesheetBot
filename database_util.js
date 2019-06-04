@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 //require('dotenv').config()
 
 const password = process.env.DB_PW 
-
-var uri = `mongodb+srv://karlflores:${password}@timesheets-82gmj.mongodb.net/test?retryWrites=true&w=majority`
+const username = process.env.DB_UN
+var uri = `mongodb+srv://${username}:${password}@timesheets-82gmj.mongodb.net/test?retryWrites=true&w=majority`
 const COLLECTIONS = {
 	timesheets: "timesheets",
 	users: "users",
