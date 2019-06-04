@@ -114,7 +114,7 @@ client.on('message', msg => {
 		msg.channel.send(helpMessage)
 	}else if(msg.content === '!format'){
 		msg.channel.send(formatMessage)
-	}else if (msg.content === '!sync') && whiteList.includes(msg.author.username)){
+	}else if (msg.content === '!sync' && whiteList.includes(msg.author.username)){
 		syncAllMessages(msg)
 	}
 })
