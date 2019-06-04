@@ -1,8 +1,8 @@
-//require('dotenv').config()
+require('dotenv').config()
 require('./database_util.js')
 const Discord = require('discord.js')
 const client = new Discord.Client()
-console.log(process.env.BOT_TOKEN)
+
 // we will use the id of the message as the hask
 // this will store a start and end time
 var timestraps = {}
