@@ -1,0 +1,27 @@
+ENTRIES SHOULD BE FORMATTED AS FOLLOWS: 
+
+					*<Callsign>
+					Code 1 : <time>
+					Code 8: <time>*
+
+Example:
+
+					*X-900
+					Code 1 : 02:00
+					Code 8: 10:00*
+
+Note, it can also be done in one line or two lines as follows:
+
+					*X-900 Code 1 : 02:00 Code 8: 10:00*
+
+					or 
+
+					*X-900 
+					Code 1 : 02:00 Code 8: 10:00*
+
+1.  Capitalization does not matter
+2a. Your Code 8 should be an edit to your initial Code 1 entry. 
+2b. It will also work if you just send it in one message
+3a. Time does not need specific timezone identifiers.
+4b. Times can also be in the format 11:00pm, 2300 or 23:00
+5.  If your entry is correct you should recieve a success message.

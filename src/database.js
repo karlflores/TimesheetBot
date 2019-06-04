@@ -2,7 +2,6 @@
 require('dotenv').config()
 
 const mongo = require('mongodb')
-const mongoose = require('mongoose')
 
 // read in the password and username for the database from the env variables 
 const password = process.env.DB_PW 
@@ -13,27 +12,16 @@ var uri = `mongodb+srv://${username}:${password}@timesheets-82gmj.mongodb.net/te
 
 // Object storing the collections in our database 
 const COLLECTION = {
-	timesheets: "timesheets",
+	timesheets: "timesheetEntriesDev",
 	users: "users",
 }
-const DATABASE = "timesheet"
+const DATABASE = "TimesheetBot"
 
 // this is for local mongodb development 
 const server = 'mongodb://localhost:27017/timesheet' 
 
-/*
-// get all users stored in the database 
-getUsers = (callback) => {
-	mongo.connect(uri, (err,db) => {
-		var dbo = db.db(DATABASE)
-
-		// connect to the right collection and get all messages 
-	})
-}
-*/
-
 // function to find all from a collection 
-findAllFromCollection = (collection, msg, query, callback) => {
+findAllFromCollection = (collection, query, callback) => {
 	_res = mongo.connect(uri, function(err, db) {
 		// error check first 
 		if (err) throw err;
@@ -42,25 +30,23 @@ findAllFromCollection = (collection, msg, query, callback) => {
 		var dbo = db.db(DATABASE)
 		
 		// connect to the right collection and get an array of all messages 
-		dbo.collection(collection)
-					.find(query)
-					.toArray((err,res)=>{
-
+		dbo.collection(collection).find(query).toArray((err,res)=>{
 			if(err) throw err;	
 			// return the message using the callback function passed 
-			callback(msg,res) 
+			console.log(res)
+			callback(res) 
 		})	
 		db.close();
 	});		
 }
 
 // get all user messages from the database given a uri 
-getUserMessages = (msg,_uid,callback) => {
-	findAllFromCollection(COLLECTION.timesheets, msg, {_uid}, callback);
+getUserMessages = (_uid,callback) => {
+	findAllFromCollection(COLLECTION.timesheets, {_uid}, callback);
 }
 
-getUserMessages = (msg,_uid,callback) => {
-	findAllFromCollection(COLLECTION.users, msg, {_uid}, callback);
+getAllUsers = (_uid,callback) => {
+	findAllFromCollection(COLLECTION.users, {_uid}, callback);
 }
 
 // function to delete a message using its message id
@@ -81,7 +67,7 @@ deleteUser = function(_id){
 	_res = mongo.connect(uri, function(err, db) {
 		var dbo = db.db(DATABASE)
 		if (err) throw err;
-		dbo.collection(COLLECTION.timesheets).deleteOne({_id},(err,obj)=>{
+		dbo.collection(COLLECTION.user).deleteOne({_id},(err,obj)=>{
 			if(err) throw err;
 			console.log(`One Entry (${_id}) Deleted...`)
 			db.close();
@@ -90,7 +76,7 @@ deleteUser = function(_id){
 }
 
 // create and update happen in the same function 
-update = function(payload){
+updateTimesheet = function(payload){
 
 	// lets parse the payload first 
 	query = {_id:payload._id};	
@@ -99,8 +85,8 @@ update = function(payload){
 			code1:payload.code1,
 			code8:payload.code8,
 			_username:payload._username}	
-	
-	console.log(query)		
+		
+	console.log("USING MESSAGE WITH ID: ", query)		
 		
 	mongo.connect(uri, function(err, db) {
 		var dbo = db.db(DATABASE)
@@ -144,8 +130,8 @@ update = function(payload){
 	});
 }
 
-module.export = {
-	update:update,
-	getUserMessages:getUserMessages,
-	deleteMessage:deleteMessage
+module.exports = {
+	updateTimesheet,
+	getUserMessages,
+	deleteMessage
 }

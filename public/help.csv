@@ -1,0 +1,10 @@
+TimesheetBot Commands Help:
+
+!help - Bring up a list of commands
+!callsign - Your stored callsign
+!setCallsign - Assign your callsign
+!time - Find the number of hours you have been on patrol
+!format - The way you should format the timesheet entries
+!rank - get a ranking of the top 10 officers who have worked the most
+!month - duty hours for the current month
+!sync - sync the database with all entries in the channel
