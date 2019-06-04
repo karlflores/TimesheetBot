@@ -1,5 +1,5 @@
 require('dotenv').config()
-require('./mdb.js')
+require('./database_util.js')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
@@ -100,7 +100,6 @@ parseEntry = function(msg){
 	if(codes.length === 2){
 		c1 = parseCodes(codes[0])
 		c2 = parseCodes(codes[1])
-		time = diffTime(parseTime(c1.time),parseTime(c2.time))
 		return {_cid,code1:parseTime(c1.time),code8:parseTime(c2.time)};	
 	}
 	//console.log(time)
@@ -111,15 +110,17 @@ createPayload = (msg) =>{
 	_id = msg.id 
 	_username = msg.author.username;
 	_uid = msg.author.id
-	
+	_timestamp = new Date(msg.createdTimestamp)
 	parsedMsg = parseEntry(msg.content)
+
 	payload = {
 		_uid,
 		_cid:parsedMsg._cid,
 		_username,
 		_id,
 		code1: parsedMsg.code1,
-		code8: parsedMsg.code8
+		code8: parsedMsg.code8,
+		_timestamp
 	}
 	console.log(payload)
 	return payload
@@ -157,6 +158,7 @@ client.on('messageDelete', (msg)=>{
 	msg.reply("Entry Successfully Deleted...")
 })
 // calculate the total time on patrol for a specific call sign 
+// this is passed to a callback returns the db entries 
 calculateTime = (msg, entries) =>{
 	let time = 0
 	
@@ -179,27 +181,53 @@ calculateTime = (msg, entries) =>{
 	return time;
 }
 
+calculateMonth = (msg, entries) =>{
+	let time = 0
+	let currDate = new Date() 	
+	let currMonth = currDate.getMonth()
+	// for all entries we want to go through them if they exist 
+	// add up all the ones for which there are both code 1 and code 8 
+	// entries 
+	if(entries.length > 0){
+		for(i = 0 ; i < entries.length ; i++){
+			console.log(entries[i])
+			// ensure we are only adding those that exist
+			if(entries[i].code1 && entries[i].code8 && 
+					entries[i]._timestamp.getMonth() === currMonth){
+				time += diffTime(entries[i].code1,entries[i].code8)
+			}
+		}
+		// reply to the message, stating the total number of hours 
+		// patrolled
+		msg.reply(`${time.toFixed(2)} hours on patrol in total`)
+	}else{
+		msg.reply(`No patrols completed...`)
+	}		
+	return time;
+}
+
 // Here is where we verify the message contents. We need to 
 // ensure that the message is in the right format so that 
 // our parsing will work 
 client.on('message', (msg)=>{
 	// if the message does not belong to a user/guild do nothing 
 	if (!msg.guild) return;
+	uid = msg.author.id
+	console.log(uid)
 	
 	// case fold the message and get rid of any alpha numerics 
 	// if the message contains a time entry 
 	if (msg.content.search(formattingRE) === 0){
-		console.log("WTF.....")
-		console.log(msg.content)
+		console.log("Added Entry into DB...")
+		// update the db 
 		update(createPayload(msg))
+	 	// give feedback to say their entry is successful 	
 		msg.reply("Patrol Entry Successfully Created...")
 	}else if(msg.content === '!time'){
-		console.log("GOT HERE")
-		// get the uid of the sender 
-		uid = msg.author.id
-
 		// find all messages with this id in the db 
 		entries = getUserMessages(msg,uid,calculateTime)
+	}else if(msg.content === '!month'){
+		entries = getUserMessages(msg,uid,calculateMonth)
 	}else if(msg.content === '!rank'){
 	
 	}else if(msg.content === '!callsign'){
@@ -207,7 +235,7 @@ client.on('message', (msg)=>{
 	}else if(msg.content === '!setCallsign'){
 	
 	}else if(msg.content === '!help'){
-		msg.reply("TimesheetBot Commands Help:\n\n!help - Bring up a list of commands\n!callsign - Your stored callsign\n!setCallsign - Assign your callsign\n!time - Find the number of hours you have been on patrol\n!format - The way you should format the timesheet entries\n!rank - get a ranking of the top 10 officers who have worked the most.")
+		msg.reply("TimesheetBot Commands Help:\n\n!help - Bring up a list of commands\n!callsign - Your stored callsign\n!setCallsign - Assign your callsign\n!time - Find the number of hours you have been on patrol\n!format - The way you should format the timesheet entries\n!rank - get a ranking of the top 10 officers who have worked the most\n!month - duty hours for the current month")
 	}else if(msg.content === '!format'){
 		msg.reply("Timesheet Entry Formatting Information\n\n<Callsign>\nCode 1 : <time>\nCode 8: <time>\n\nCode 8 should be an edit to your initial Code 1 entry...\n\nExample:\nX-900\nCode 1 : 02:00\nCode 8: 10:00\n\nTime does not need specific timezone identifiers.\nTimes can also be in the format 11:00pm, 2300 or 23:00")
 	}

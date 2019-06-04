@@ -1,5 +1,8 @@
 const mongo = require('mongodb')
 const mongoose = require('mongoose')
+require('dotenv')
+const password = process.env.DB_PW 
+const uri = `mongodb+srv://karlflores:${password}@timesheets-82gmj.mongodb.net/test?retryWrites=true&w=majority`
 
 const server = 'mongodb://localhost:27017/timesheet' 
 const url = 'mongodb://localhost:27017/timesheet'
