@@ -11,6 +11,7 @@ const client = new Discord.Client()
 // loading the help and formatting messages 
 var helpMessage = fs.readFileSync('./public/help.csv').toString()
 var formatMessage = fs.readFileSync('./public/format.csv').toString()
+var whiteList = fs.readFileSync('./public/whitelist.csv').toString()
 
 // this function is not working correctly...
 syncAllMessages = msg => {
@@ -113,7 +114,7 @@ client.on('message', msg => {
 		msg.channel.send(helpMessage)
 	}else if(msg.content === '!format'){
 		msg.channel.send(formatMessage)
-	}else if (msg.content === '!sync'){
+	}else if (msg.content === '!sync') && whiteList.includes(msg.author.username)){
 		syncAllMessages(msg)
 	}
 })
