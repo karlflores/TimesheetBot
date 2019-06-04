@@ -1,6 +1,6 @@
 const mongo = require('mongodb')
 const mongoose = require('mongoose')
-require('dotenv').config()
+//require('dotenv').config()
 
 const password = process.env.DB_PW 
 
