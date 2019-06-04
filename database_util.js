@@ -9,11 +9,10 @@ const password = process.env.DB_PW
 const username = process.env.DB_UN
 
 // for username access. 
-var uri = `mongodb+srv://${username}:${password}@timesheets-82gmj.mongodb.net/test?retry\
-	Writes=true&w=majority`
+var uri = `mongodb+srv://${username}:${password}@timesheets-82gmj.mongodb.net/test?retryWrites=true&w=majority`
 
 // Object storing the collections in our database 
-const COLLECTIONS = {
+const COLLECTION = {
 	timesheets: "timesheets",
 	users: "users",
 }
@@ -22,6 +21,7 @@ const DATABASE = "timesheet"
 // this is for local mongodb development 
 const server = 'mongodb://localhost:27017/timesheet' 
 
+/*
 // get all users stored in the database 
 getUsers = (callback) => {
 	mongo.connect(uri, (err,db) => {
@@ -30,8 +30,10 @@ getUsers = (callback) => {
 		// connect to the right collection and get all messages 
 	})
 }
+*/
 
-findAllFromCollection = (collection, query, callback) => {
+// function to find all from a collection 
+findAllFromCollection = (collection, msg, query, callback) => {
 	_res = mongo.connect(uri, function(err, db) {
 		// error check first 
 		if (err) throw err;
@@ -46,37 +48,19 @@ findAllFromCollection = (collection, query, callback) => {
 
 			if(err) throw err;	
 			// return the message using the callback function passed 
-			callback(res) 
+			callback(msg,res) 
 		})	
-
 		db.close();
-	});	
-	
+	});		
 }
 
 // get all user messages from the database given a uri 
 getUserMessages = (msg,_uid,callback) => {
-	_res = mongo.connect(uri, function(err, db) {
-		// error check first 
-		if (err) throw err;
+	findAllFromCollection(COLLECTION.timesheets, msg, {_uid}, callback);
+}
 
-		// get the right database 
-		var dbo = db.db(DATABASE)
-		
-		// connect to the right collection and get an array of all messages 
-		dbo.collection(COLLECTIONS.timesheets)
-					.find({_uid})
-					.toArray((err,res)=>{
-
-			if(err) throw err;
-			
-			// return the message using the callback function passed 
-			callback(msg,res) 
-
-		})	
-
-		db.close();
-	});	
+getUserMessages = (msg,_uid,callback) => {
+	findAllFromCollection(COLLECTION.users, msg, {_uid}, callback);
 }
 
 // function to delete a message using its message id
@@ -84,7 +68,20 @@ deleteMessage = function(_id){
 	_res = mongo.connect(uri, function(err, db) {
 		var dbo = db.db(DATABASE)
 		if (err) throw err;
-		dbo.collection(COLLECTIONS.timesheets).deleteOne({_id},(err,obj)=>{
+		dbo.collection(COLLECTION.timesheets).deleteOne({_id},(err,obj)=>{
+			if(err) throw err;
+			console.log(`One Entry (${_id}) Deleted...`)
+			db.close();
+		})	
+	});	
+}
+
+// function to delete a message using its message id
+deleteUser = function(_id){
+	_res = mongo.connect(uri, function(err, db) {
+		var dbo = db.db(DATABASE)
+		if (err) throw err;
+		dbo.collection(COLLECTION.timesheets).deleteOne({_id},(err,obj)=>{
 			if(err) throw err;
 			console.log(`One Entry (${_id}) Deleted...`)
 			db.close();
@@ -110,7 +107,7 @@ update = function(payload){
 		if (err) throw err;
 
 		// check is there is an entry in the db already
-		dbo.collection(COLLECTIONS.timesheets).find(query).toArray((err,res)=>{
+		dbo.collection(COLLECTION.timesheets).find(query).toArray((err,res)=>{
 			if(err) throw err;
 
 			dup = res.length > 0;
@@ -122,7 +119,7 @@ update = function(payload){
 			if(dup === true){
 				// if there is an existing collection we just need to update the 
 				// values of this entry 
-				dbo.collection(COLLECTIONS.timesheets)
+				dbo.collection(COLLECTION.timesheets)
 							.updateOne(query,{$set:updated}, (err,res)=>{
 
 					if(err) throw err;	
@@ -134,7 +131,7 @@ update = function(payload){
 				// if there is nothing, we just need to add this message to the 
 				// timesheet 
 				console.log("ADDING ENTRY TO THE DATABASE...")
-				dbo.collection(COLLECTIONS.timesheets)
+				dbo.collection(COLLECTION.timesheets)
 							.insertOne(payload, (err,res)=>{
 
 					if(err) throw err;							
