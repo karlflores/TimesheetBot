@@ -93,7 +93,7 @@ client.on('message', msg => {
 		db.updateTimesheet(utils.createPayload(msg))
 	 	// give feedback to say their entry is successful 	
 		msg.reply("Patrol Entry Successfully Created...")
-	}else if(msg.content === '!time'){
+	}else if(msg.content === '!stat'){
 		// find all messages with this id in the db 
 		entries = db.getUserMessages(uid,
 							callbacks.calculateTime(msg))
