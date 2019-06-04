@@ -13,7 +13,7 @@ var helpMessage = fs.readFileSync('./public/help.csv').toString()
 var formatMessage = fs.readFileSync('./public/format.csv').toString()
 
 // this function is not working correctly...
-updateAll = msg => {
+syncAllMessages = msg => {
 	console.log("got here...")
 	msg.channel.send("... database update in process ...")
 	// get the channel which the message was sent from 
@@ -113,10 +113,8 @@ client.on('message', msg => {
 		msg.channel.send(helpMessage)
 	}else if(msg.content === '!format'){
 		msg.channel.send(formatMessage)
-	}else if (msg.content === '!update'){
-		console.log("updating...")
-		updateAll(msg)
-		console.log("finished")
+	}else if (msg.content === '!sync'){
+		syncAllMessages(msg)
 	}
 })
 
