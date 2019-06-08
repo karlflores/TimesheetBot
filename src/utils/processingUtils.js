@@ -2,11 +2,11 @@
 const re = require('./regexp.js')
 /* Function parses the time in a given format */
 parseTime = function(time){
-	console.log(time)	
+	//console.log(time)	
 	// times will be in the format 00:00 0000 or 0:00am/pm
 	time = time.replace(":","")	
 	timeT = time.match(re.timeRE)[0]
-	console.log(timeT)
+	//console.log(timeT)
 	//console.log(`time : ${timeT.length}`)	
 	// now we have to convert the minutes and hours to ints 
 	
@@ -18,7 +18,7 @@ parseTime = function(time){
 	}else if(timeT.length === 5 || timeT.length === 6){
 		hours = parseInt(timeT.substring(0,1))
 		mins = parseInt(timeT.substring(1,3))	
-		console.log(hours, mins)
+		//console.log(hours, mins)
 	}
 	//console.log(hours,mins,timeT.substring(2,4))
 	// first we have to convert the time to 24 hour time 
@@ -38,7 +38,7 @@ parseTime = function(time){
 	dateTimeObj.setHours(hours)
 	dateTimeObj.setMinutes(mins)
 	
-	console.log(dateTimeObj)
+	//console.log(dateTimeObj)
 	return dateTimeObj	
 }
 
@@ -69,7 +69,7 @@ parseCodeTimes = function(codeMsg){
 
 // process the entry
 parseEntry = function(msg){
-
+	if(!msg) console.log("wtf")
 	// first lets get the callsign
 	msg = msg.toLowerCase(); 
 	var _cid = msg.match(re.callSignRE)[0]
@@ -82,7 +82,7 @@ parseEntry = function(msg){
 	msg = msg.replace(/ +(?= )/g,'');
 	
 	// get the codes + times from the message 
-	codeTimes = msg.match(re.codeRE)
+	var codeTimes = msg.match(re.codeRE)
 	var time = 0;	
 	
 	// Return an entry based on how many codes it found
@@ -91,14 +91,14 @@ parseEntry = function(msg){
 	if(codeTimes.length === 2){
 		c1 = parseCodeTimes(codeTimes[0])
 		c2 = parseCodeTimes(codeTimes[1])
-		console.log(c1,c2)
+		//console.log(c1,c2)
 		if(c1.code.search(/code1/g) === -1 
 				&& c2.code.search(/code8/g) === -1) return null
 		return {_cid,code1:parseTime(c1.time),code8:parseTime(c2.time)};	
 	}
 	//console.log(time)
-	c1 = parseCodeTimes(codesTimes[0])
-	console.log(c1)
+	c1 = parseCodeTimes(codeTimes[0])
+	//console.log(c1)
 	if(c1.code != 'code1') return null
 	return {_cid,code1:parseTime(c1.time),code8:undefined};	
 }
@@ -119,7 +119,7 @@ createPayload = (msg) => {
 		code8: parsedMsg.code8,
 		_timestamp
 	}
-	console.log(payload)
+	//console.log(payload)
 	return payload
 }
 

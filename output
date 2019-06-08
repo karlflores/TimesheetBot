@@ -1,0 +1,1090 @@
+
+> TimesheetBot@1.0.0 start /Users/karlflores/Desktop/Programming/Discord
+> node src/bot.js
+
+Logged in as TimeSheet#8057
+211036845671186433 sent message
+FILTERING...
+100
+100 { limit: 100 }
+FILTERING...
+100
+100 { limit: 100, before: '586804178202918932' }
+FILTERING...
+100
+100 { limit: 100, before: '585675825714561035' }
+FILTERING...
+100
+100 { limit: 100, before: '585529548389613568' }
+FILTERING...
+5
+5 { limit: 100, before: '585446631667924992' }
+FILTERING...
+0
+0 { limit: 5, before: '585371704474468353' }
+SYNCING
+Updating 405 messages...
+Currently updating  0 586942259971227653
+Currently updating  0 586942258192842762
+Currently updating  0 586942256926425088
+Currently updating  0 586942002222989583
+Currently updating  0 586941989463785472
+Currently updating  0 586941988037984260
+Currently updating  0 586941986750332986
+Currently updating  0 586941847939579922
+Currently updating  0 586941831124615190
+Currently updating  0 586941828721410049
+Currently updating  0 586941827320643595
+Currently updating  0 586941756633776240
+Currently updating  0 586940968415264778
+Currently updating  0 586940958797463575
+Currently updating  0 586940957346496518
+Currently updating  0 586940955790278696
+Currently updating  0 586940033626406915
+Currently updating  0 586940023870586883
+Currently updating  0 586940022796845056
+Currently updating  0 586940021295022101
+Currently updating  0 586939125815574601
+Currently updating  0 586939123860766725
+Currently updating  0 586939046723321857
+Currently updating  0 586939038498553886
+Currently updating  0 586939036120252479
+Currently updating  0 586939035130396703
+Currently updating  0 586938900010762241
+Currently updating  0 586938898664390657
+Currently updating  0 586938897322344498
+Currently updating  0 586938787909861389
+Currently updating  0 586938786970337280
+Currently updating  0 586938785393278986
+Currently updating  0 586938483394871309
+Currently updating  0 586938481616355345
+Currently updating  0 586938480551002122
+Currently updating  0 586938277634768905
+Currently updating  0 586938275923623965
+Currently updating  0 586938274514206725
+Currently updating  0 586937697902395392
+Currently updating  0 586937515001380864
+Currently updating  0 586936240771694592
+Currently updating  0 586936177827774464
+Currently updating  0 586936167577026580
+Currently updating  0 586936098752692234
+Currently updating  0 586935575789961226
+Currently updating  0 586935547776204801
+Currently updating  0 586935427542286337
+Currently updating  0 586935398605783060
+Currently updating  0 586933641209184266
+Currently updating  0 586933535890210826
+Currently updating  0 586933373843275806
+Currently updating  0 586933344109985814
+Currently updating  0 586933034880598019
+Currently updating  0 586932783604039701
+Currently updating  0 586932772292263947
+Currently updating  0 586932652620382221
+Currently updating  0 586932233269542912
+Currently updating  0 586829519927640074
+Currently updating  0 586829269162786816
+Currently updating  0 586828154111524875
+Currently updating  0 586828089519243264
+Currently updating  0 586828003082764289
+Currently updating  0 586827866868678677
+Currently updating  0 586821397892825109
+Currently updating  0 586821394751553537
+Currently updating  0 586821393656709130
+Currently updating  0 586821321506160643
+Currently updating  0 586821318834388997
+Currently updating  0 586821317525766144
+Currently updating  0 586821306398408705
+Currently updating  0 586819552797655053
+Currently updating  0 586819548888432650
+Currently updating  0 586819547412168715
+Currently updating  0 586819438091698189
+Currently updating  0 586819435508006913
+Currently updating  0 586819434065297418
+Currently updating  0 586818952009744424
+Currently updating  0 586818939737341952
+Currently updating  0 586818926919417867
+Currently updating  0 586818879955664905
+Currently updating  0 586818866319982614
+Currently updating  0 586818820740612096
+Currently updating  0 586818804848263179
+Currently updating  0 586818803476856843
+{ code: 'code1', time: '0030' } { code: 'code8', time: '1402' }
+0030
+0030
+2018-12-31T13:30:00.000Z
+1402
+1402
+2019-01-01T03:02:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '586818803476856843',
+  code1: 2018-12-31T13:30:00.000Z,
+  code8: 2019-01-01T03:02:00.000Z,
+  _timestamp: 2019-06-08T07:28:25.315Z
+}
+Currently updating  0 586818779653079061
+Currently updating  0 586818508281610240
+Currently updating  0 586818506591305731
+{ code: 'code1', time: '0030' } { code: 'code8', time: '1301' }
+0030
+0030
+2018-12-31T13:30:00.000Z
+1301
+1301
+2019-01-01T02:01:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '586818506591305731',
+  code1: 2018-12-31T13:30:00.000Z,
+  code8: 2019-01-01T02:01:00.000Z,
+  _timestamp: 2019-06-08T07:27:14.532Z
+}
+Currently updating  0 586809575777501185
+Currently updating  0 586809573118181386
+Currently updating  0 586809571469819911
+Currently updating  0 586807964116058113
+Currently updating  0 586807951113584652
+Currently updating  0 586807937364656128
+Currently updating  0 586807920629383188
+Currently updating  0 586807918398144513
+{ code: 'code1', time: '1030' } { code: 'code8', time: '0201' }
+1030
+1030
+2018-12-31T23:30:00.000Z
+0201
+0201
+2018-12-31T15:01:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '586807918398144513',
+  code1: 2018-12-31T23:30:00.000Z,
+  code8: 2018-12-31T15:01:00.000Z,
+  _timestamp: 2019-06-08T06:45:10.110Z
+}
+Currently updating  0 586804767842500608
+Currently updating  0 586804764810149888
+Currently updating  0 586804763551727616
+Currently updating  0 586804180967096332
+Currently updating  0 586804178202918932
+Currently updating  0 586804176307355648
+Currently updating  0 586804133382848522
+Currently updating  0 586264364856770560
+Currently updating  0 585685998617231382
+Currently updating  0 585685995446468619
+Currently updating  0 585685993730867222
+Currently updating  0 585684905472557056
+Currently updating  0 585684902247268352
+Currently updating  0 585684901026725888
+Currently updating  0 585684499510198285
+Currently updating  0 585684496549019648
+Currently updating  0 585684493570932766
+Currently updating  0 585684457231613972
+Currently updating  0 585684443596062721
+Currently updating  0 585684415527518242
+Currently updating  0 585684414348918799
+{ code: 'code1', time: '0030' } { code: 'code8', time: '1300' }
+0030
+0030
+2018-12-31T13:30:00.000Z
+1300
+1300
+2019-01-01T02:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585684414348918799',
+  code1: 2018-12-31T13:30:00.000Z,
+  code8: 2019-01-01T02:00:00.000Z,
+  _timestamp: 2019-06-05T04:20:45.871Z
+}
+Currently updating  0 585684318815256592
+{ code: 'code1', time: '0030' } { code: 'code8', time: '1300' }
+0030
+0030
+2018-12-31T13:30:00.000Z
+1300
+1300
+2019-01-01T02:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585684318815256592',
+  code1: 2018-12-31T13:30:00.000Z,
+  code8: 2019-01-01T02:00:00.000Z,
+  _timestamp: 2019-06-05T04:20:23.094Z
+}
+Currently updating  0 585683849611313172
+{ code: 'code1', time: '0030' } { code: 'code8', time: '1300' }
+0030
+0030
+2018-12-31T13:30:00.000Z
+1300
+1300
+2019-01-01T02:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585683849611313172',
+  code1: 2018-12-31T13:30:00.000Z,
+  code8: 2019-01-01T02:00:00.000Z,
+  _timestamp: 2019-06-05T04:18:31.227Z
+}
+Currently updating  0 585683775107629066
+Currently updating  0 585683761539186699
+Currently updating  0 585682087453917196
+Currently updating  0 585682075257012255
+Currently updating  0 585681964661735452
+Currently updating  0 585681960538472454
+Currently updating  0 585681959028785164
+Currently updating  0 585681543712735242
+Currently updating  0 585681540432920599
+Currently updating  0 585681538939879445
+Currently updating  0 585681177067782165
+Currently updating  0 585681174077112331
+Currently updating  0 585681173074935818
+Currently updating  0 585680986168098818
+Currently updating  0 585680974197555211
+Currently updating  0 585680960725712909
+Currently updating  0 585680823404068921
+Currently updating  0 585680821927804938
+{ code: 'code1', time: '0030' } { code: 'code8', time: '1300' }
+0030
+0030
+2018-12-31T13:30:00.000Z
+1300
+1300
+2019-01-01T02:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585680821927804938',
+  code1: 2018-12-31T13:30:00.000Z,
+  code8: 2019-01-01T02:00:00.000Z,
+  _timestamp: 2019-06-05T04:06:29.371Z
+}
+Currently updating  0 585680666486898689
+Currently updating  0 585680664523702302
+Currently updating  0 585680662468624394
+Currently updating  0 585680637789339687
+Currently updating  0 585680635704901643
+Currently updating  0 585680634538885159
+Currently updating  0 585680633163153418
+Currently updating  0 585680631409934347
+Currently updating  0 585680611574939678
+Currently updating  0 585680610232893440
+Currently updating  0 585680608299057153
+Currently updating  0 585680607258869781
+Currently updating  0 585680605501587456
+Currently updating  0 585680594306990100
+Currently updating  0 585680579526262794
+Currently updating  0 585680578083553280
+{ code: 'code1', time: '1030' } { code: 'code8', time: '0200' }
+1030
+1030
+2018-12-31T23:30:00.000Z
+0200
+0200
+2018-12-31T15:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585680578083553280',
+  code1: 2018-12-31T23:30:00.000Z,
+  code8: 2018-12-31T15:00:00.000Z,
+  _timestamp: 2019-06-05T04:05:31.234Z
+}
+Currently updating  0 585680325334663168
+Currently updating  0 585680323828776960
+Currently updating  0 585680298587717642
+Currently updating  0 585680296762933249
+Currently updating  0 585680295504642048
+Currently updating  0 585680294213058572
+Currently updating  0 585680292489068557
+Currently updating  0 585680272465330176
+Currently updating  0 585680270330429452
+Currently updating  0 585680269084983305
+Currently updating  0 585680267453267988
+Currently updating  0 585680265968484352
+Currently updating  0 585680253192634368
+Currently updating  0 585679833699319839
+Currently updating  0 585679822857043991
+Currently updating  0 585679793014571008
+Currently updating  0 585679791743827969
+{ code: 'code1', time: '0:30' } { code: 'code8', time: '1300' }
+0:30
+030
+2018-12-31T15:00:00.000Z
+1300
+1300
+2019-01-01T02:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585679791743827969',
+  code1: 2018-12-31T15:00:00.000Z,
+  code8: 2019-01-01T02:00:00.000Z,
+  _timestamp: 2019-06-05T04:02:23.756Z
+}
+Currently updating  0 585679619190030356
+Currently updating  0 585679607349510164
+Currently updating  0 585679572671135754
+Currently updating  0 585679560805449740
+Currently updating  0 585679530862182402
+Currently updating  0 585679528928477185
+{ code: 'code1', time: '12:30' } { code: 'code8', time: '2:00' }
+12:30
+1230
+2019-01-01T01:30:00.000Z
+2:00
+200
+2019-01-01T01:30:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585679528928477185',
+  code1: 2019-01-01T01:30:00.000Z,
+  code8: 2019-01-01T01:30:00.000Z,
+  _timestamp: 2019-06-05T04:01:21.096Z
+}
+Currently updating  0 585679210866278401
+Currently updating  0 585679200199901188
+Currently updating  0 585679158852452362
+Currently updating  0 585679155199475732
+{ code: 'code1am', time: '12:30' } { code: 'code8pm', time: '1:00' }
+12:30
+1230
+2019-01-01T01:30:00.000Z
+1:00
+100
+2019-01-01T01:30:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585679155199475732',
+  code1: 2019-01-01T01:30:00.000Z,
+  code8: 2019-01-01T01:30:00.000Z,
+  _timestamp: 2019-06-05T03:59:51.992Z
+}
+Currently updating  0 585679112614707230
+Currently updating  0 585678120527331346
+Currently updating  0 585678107034386442
+Currently updating  0 585678066181865527
+Currently updating  0 585678063887581187
+{ code: 'code1am', time: '12:30' } { code: 'code8pm', time: '1:00' }
+12:30
+1230
+2019-01-01T01:30:00.000Z
+1:00
+100
+2019-01-01T01:30:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585678063887581187',
+  code1: 2019-01-01T01:30:00.000Z,
+  code8: 2019-01-01T01:30:00.000Z,
+  _timestamp: 2019-06-05T03:55:31.803Z
+}
+Currently updating  0 585677602715467806
+Currently updating  0 585677590384082963
+Currently updating  0 585677517227294730
+Currently updating  0 585677515473944576
+{ code: 'code1am', time: '12:30' } { code: 'code8pm', time: '1:00' }
+12:30
+1230
+2019-01-01T01:30:00.000Z
+1:00
+100
+2019-01-01T01:30:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585677515473944576',
+  code1: 2019-01-01T01:30:00.000Z,
+  code8: 2019-01-01T01:30:00.000Z,
+  _timestamp: 2019-06-05T03:53:21.051Z
+}
+Currently updating  0 585676938299965441
+Currently updating  0 585676934739001354
+Currently updating  0 585676932335665172
+Currently updating  0 585676748016975872
+Currently updating  0 585676745387278336
+Currently updating  0 585676744019804160
+Currently updating  0 585676359842660353
+Currently updating  0 585676358747815936
+Currently updating  0 585676311909892100
+Currently updating  0 585676309343240192
+Currently updating  0 585676306834784258
+Currently updating  0 585675825714561035
+Currently updating  0 585675821482508320
+Currently updating  0 585675820123815957
+Currently updating  0 585673209873956868
+Currently updating  0 585673197177798676
+Currently updating  0 585672941031915523
+Currently updating  0 585564291940220981
+Currently updating  0 585564291089039382
+Currently updating  0 585564266107764737
+Currently updating  0 585564264216133645
+Currently updating  0 585564263377272834
+Currently updating  0 585563867023671327
+Currently updating  0 585563866612629514
+Currently updating  0 585563823763750963
+Currently updating  0 585555710365138944
+Currently updating  0 585555708972630016
+Currently updating  0 585553986636218380
+Currently updating  0 585553983238832150
+Currently updating  0 585553981833609227
+Currently updating  0 585553713884692480
+Currently updating  0 585553711225372672
+Currently updating  0 585553709589725192
+Currently updating  0 585553163302600814
+Currently updating  0 585553161104916487
+Currently updating  0 585553159057965090
+Currently updating  0 585552996570497025
+Currently updating  0 585552907802509322
+Currently updating  0 585552791263510588
+Currently updating  0 585552790068396072
+Currently updating  0 585552745927409803
+Currently updating  0 585552261103616010
+Currently updating  0 585552258096431192
+Currently updating  0 585552255378522118
+Currently updating  0 585552167327498250
+Currently updating  0 585552165914017802
+Currently updating  0 585552164382965763
+Currently updating  0 585550759073022110
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550759073022110',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T19:29:39.970Z
+}
+Currently updating  0 585550756212506664
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550756212506664',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T19:29:39.288Z
+}
+Currently updating  0 585550754673197068
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038am' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038am
+1038am
+1 3
+2018-12-31T14:03:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550754673197068',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T14:03:00.000Z,
+  _timestamp: 2019-06-04T19:29:38.921Z
+}
+Currently updating  0 585550752597147648
+{ code: 'code1', time: '9:53am' } { code: 'code8', time: '10:38' }
+9:53am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+10:38
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550752597147648',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T19:29:38.426Z
+}
+Currently updating  0 585550750382555160
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550750382555160',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T19:29:37.898Z
+}
+Currently updating  0 585550733831569453
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550733831569453',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T19:29:33.952Z
+}
+Currently updating  0 585550732711821461
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550732711821461',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T19:29:33.685Z
+}
+Currently updating  0 585550730996350976
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'k-420',
+  _username: 'TimeSheet',
+  _id: '585550730996350976',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T19:29:33.276Z
+}
+Currently updating  0 585550729578676234
+Currently updating  0 585550726332416032
+Currently updating  0 585550723346071565
+Currently updating  0 585550144586514432
+Currently updating  0 585550141818142729
+Currently updating  0 585550137871564800
+Currently updating  0 585550015146098709
+Currently updating  0 585549218983444492
+Currently updating  0 585549214239686666
+Currently updating  0 585549212838526978
+Currently updating  0 585549143347560448
+Currently updating  0 585549139748585535
+Currently updating  0 585549138436030490
+Currently updating  0 585548935054229554
+Currently updating  0 585548932113760261
+Currently updating  0 585548930444427276
+Currently updating  0 585548608263421965
+Currently updating  0 585548602575814676
+Currently updating  0 585548601284100120
+Currently updating  0 585548416285671436
+Currently updating  0 585548413823877160
+Currently updating  0 585548412511059989
+Currently updating  0 585548150010544141
+Currently updating  0 585548146273419264
+Currently updating  0 585548144419536937
+Currently updating  0 585547934637097019
+Currently updating  0 585547314815434753
+Currently updating  0 585547313271930991
+Currently updating  0 585547311648866317
+Currently updating  0 585538277117788170
+Currently updating  0 585538266057670704
+Currently updating  0 585537715945209964
+Currently updating  0 585537704809332736
+Currently updating  0 585536455796064256
+Currently updating  0 585536444244951110
+Currently updating  0 585536355845799937
+Currently updating  0 585536038160695315
+Currently updating  0 585536035602169887
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585536035602169887',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T18:31:09.621Z
+}
+Currently updating  0 585535812595220480
+Currently updating  0 585535811215425536
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585535811215425536',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T18:30:16.123Z
+}
+Currently updating  0 585535490988703744
+Currently updating  0 585535489201930250
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585535489201930250',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T18:28:59.349Z
+}
+Currently updating  0 585534606799798321
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585534606799798321',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T18:25:28.968Z
+}
+Currently updating  0 585534443037524012
+{ code: 'code1', time: '9:53am' } { code: 'code8', time: '10:38' }
+9:53am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+10:38
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585534443037524012',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T18:24:49.924Z
+}
+Currently updating  0 585534346153164830
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038am' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038am
+1038am
+1 3
+2018-12-31T14:03:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585534346153164830',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T14:03:00.000Z,
+  _timestamp: 2019-06-04T18:24:26.825Z
+}
+Currently updating  0 585534272098533418
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585534272098533418',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T18:24:09.169Z
+}
+Currently updating  0 585533950190026754
+{ code: 'code1', time: '953am' } { code: 'code8', time: '1038' }
+953am
+953am
+9 53
+2018-12-31T22:53:00.000Z
+1038
+1038
+2018-12-31T23:38:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-420',
+  _username: 'karl_',
+  _id: '585533950190026754',
+  code1: 2018-12-31T22:53:00.000Z,
+  code8: 2018-12-31T23:38:00.000Z,
+  _timestamp: 2019-06-04T18:22:52.420Z
+}
+Currently updating  0 585533766404014110
+Currently updating  0 585533755830173697
+Currently updating  0 585533735756103705
+Currently updating  0 585533723743748109
+Currently updating  0 585533711575941127
+Currently updating  0 585533710032699412
+Currently updating  0 585530241980825610
+Currently updating  0 585530229532000258
+Currently updating  0 585530006806069262
+Currently updating  0 585529548389613568
+Currently updating  0 585525153291567147
+Currently updating  0 585525142948544533
+Currently updating  0 585525082391183370
+Currently updating  0 585524674893709322
+Currently updating  0 585524673438154779
+Currently updating  0 585524452691935248
+Currently updating  0 585524370051694632
+Currently updating  0 585524368306733236
+Currently updating  0 585524200664465418
+Currently updating  0 585524199041400833
+Currently updating  0 585524183564419082
+Currently updating  0 585524182100607006
+Currently updating  0 585524035597631508
+Currently updating  0 585524034129756193
+Currently updating  0 585524002445852702
+Currently updating  0 585524001158201412
+Currently updating  0 585521686447652866
+{ code: 'code1', time: '02:00' } { code: 'code8', time: '10:00' }
+02:00
+0200
+2018-12-31T15:00:00.000Z
+10:00
+1000
+2018-12-31T23:00:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'x-900',
+  _username: 'TimeSheet',
+  _id: '585521686447652866',
+  code1: 2018-12-31T15:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T17:34:08.516Z
+}
+Currently updating  0 585521685449539594
+Currently updating  0 585519793541742592
+Currently updating  0 585519783403847716
+Currently updating  0 585519744732626945
+Currently updating  0 585519743385993216
+{ code: 'code1am', time: '10:00' } { code: 'code8am', time: '1:00' }
+10:00
+1000
+2018-12-31T23:00:00.000Z
+1:00
+100
+2018-12-31T23:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585519743385993216',
+  code1: 2018-12-31T23:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T17:26:25.254Z
+}
+Currently updating  0 585519381669216257
+{ code: 'code1am', time: '10:00' } { code: 'code8am', time: '1:00' }
+10:00
+1000
+2018-12-31T23:00:00.000Z
+1:00
+100
+2018-12-31T23:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585519381669216257',
+  code1: 2018-12-31T23:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T17:24:59.014Z
+}
+Currently updating  0 585519086163853312
+{ code: 'code1am', time: '10:00' } { code: 'code8am', time: '1:00' }
+10:00
+1000
+2018-12-31T23:00:00.000Z
+1:00
+100
+2018-12-31T23:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585519086163853312',
+  code1: 2018-12-31T23:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T17:23:48.560Z
+}
+Currently updating  0 585518913941667851
+{ code: 'code1am', time: '10:00' } { code: 'code8am', time: '1:00' }
+10:00
+1000
+2018-12-31T23:00:00.000Z
+1:00
+100
+2018-12-31T23:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585518913941667851',
+  code1: 2018-12-31T23:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T17:23:07.499Z
+}
+Currently updating  0 585518119938818231
+{ code: 'code1am', time: '10:00' } { code: 'code8am', time: '1:00' }
+10:00
+1000
+2018-12-31T23:00:00.000Z
+1:00
+100
+2018-12-31T23:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585518119938818231',
+  code1: 2018-12-31T23:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T17:19:58.194Z
+}
+Currently updating  0 585517185397424135
+{ code: 'code1pm', time: '12:00' } { code: 'code8am', time: '1:00' }
+12:00
+1200
+2019-01-01T01:00:00.000Z
+1:00
+100
+2019-01-01T01:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585517185397424135',
+  code1: 2019-01-01T01:00:00.000Z,
+  code8: 2019-01-01T01:00:00.000Z,
+  _timestamp: 2019-06-04T17:16:15.382Z
+}
+Currently updating  0 585517132364775425
+Currently updating  0 585517130825465894
+Currently updating  0 585517119882526731
+Currently updating  0 585517107526238209
+Currently updating  0 585515712555122689
+Currently updating  0 585515700467138570
+Currently updating  0 585514971652161568
+Currently updating  0 585513306018676738
+Currently updating  0 585513296317382676
+Currently updating  0 585513202574557209
+Currently updating  0 585513186136948739
+Currently updating  0 585513175898652672
+Currently updating  0 585513089743716392
+Currently updating  0 585509014171942925
+Currently updating  0 585509002377691137
+Currently updating  0 585508989543120901
+Currently updating  0 585508865152385024
+Currently updating  0 585508854184411136
+Currently updating  0 585508840842199089
+Currently updating  0 585508838887784593
+{ code: 'code1am', time: '10:00' } { code: 'code8am', time: '1:00' }
+10:00
+1000
+2018-12-31T23:00:00.000Z
+1:00
+100
+2018-12-31T23:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585508838887784593',
+  code1: 2018-12-31T23:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T16:43:05.419Z
+}
+Currently updating  0 585508731375321090
+Currently updating  0 585508719664562186
+Currently updating  0 585508571366817792
+Currently updating  0 585508559433891863
+Currently updating  0 585508285420142602
+Currently updating  0 585508273046945807
+Currently updating  0 585508116267794550
+Currently updating  0 585508114498060304
+{ code: 'code1', time: '1800' } { code: 'code8', time: '0100' }
+1800
+1800
+2019-01-01T07:00:00.000Z
+0100
+0100
+2018-12-31T14:00:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585508114498060304',
+  code1: 2019-01-01T07:00:00.000Z,
+  code8: 2018-12-31T14:00:00.000Z,
+  _timestamp: 2019-06-04T16:40:12.711Z
+}
+Currently updating  0 585507836662906881
+Currently updating  0 585507776042631178
+Currently updating  0 585507763937869825
+Currently updating  0 585507756828524546
+Currently updating  0 585503171615653908
+Currently updating  0 585503161112854538
+Currently updating  0 585502610941804610
+Currently updating  0 585502600414101524
+Currently updating  0 585501680188260352
+Currently updating  0 585500390087196672
+Currently updating  0 585500307220594713
+Currently updating  0 585499686178127891
+Currently updating  0 585499676518907930
+Currently updating  0 585499675507818496
+Currently updating  0 585499591550435347
+Currently updating  0 585499468183502851
+Currently updating  0 585499425133035527
+Currently updating  0 585499423736463620
+Currently updating  0 585496997361090561
+Currently updating  0 585496995960061982
+Currently updating  0 585491621622186026
+Currently updating  0 585491620963811341
+Currently updating  0 585491611949989889
+Currently updating  0 585491609794248819
+Currently updating  0 585491600474374157
+Currently updating  0 585491600088760320
+Currently updating  0 585488577463582741
+Currently updating  0 585488105394536490
+Currently updating  0 585488104945877002
+Currently updating  0 585488095445516298
+Currently updating  0 585488094678220849
+{ code: 'code1', time: '21:40' } { code: 'code8', time: '00:30' }
+21:40
+2140
+2019-01-01T10:40:00.000Z
+00:30
+0030
+2018-12-31T13:30:00.000Z
+{
+  _uid: '211036845671186433',
+  _cid: 'k-490',
+  _username: 'karl_',
+  _id: '585488094678220849',
+  code1: 2019-01-01T10:40:00.000Z,
+  code8: 2018-12-31T13:30:00.000Z,
+  _timestamp: 2019-06-04T15:20:39.614Z
+}
+Currently updating  0 585488053045428234
+Currently updating  0 585488051246071854
+Currently updating  0 585488034783297559
+{ code: 'code1', time: '02:00' } { code: 'code8', time: '10:00' }
+02:00
+0200
+2018-12-31T15:00:00.000Z
+10:00
+1000
+2018-12-31T23:00:00.000Z
+{
+  _uid: '584049095438630966',
+  _cid: 'x-900',
+  _username: 'TimeSheet',
+  _id: '585488034783297559',
+  code1: 2018-12-31T15:00:00.000Z,
+  code8: 2018-12-31T23:00:00.000Z,
+  _timestamp: 2019-06-04T15:20:25.334Z
+}
+Currently updating  0 585488033516879873
+Currently updating  0 585488000759103507
+Currently updating  0 585487997760307210
+Currently updating  0 585487972737089549
+Currently updating  0 585487972628037682
+Currently updating  0 585487972070326282
+Currently updating  0 585487956488355843
+Currently updating  0 585487956232634389
+Currently updating  0 585487956001947668
+Currently updating  0 585484915290931230
+Currently updating  0 585446631667924992
+Currently updating  0 585436549743902730
+Currently updating  0 585434015801016348
+Currently updating  0 585427031404314634
+Currently updating  0 585371705908658176
+Currently updating  0 585371704474468353
+fetched...

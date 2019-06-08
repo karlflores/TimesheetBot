@@ -6,7 +6,6 @@ var formattingRE = new RegExp(/[a-z][\-\:]*[0-9]{3}[\n\s]*(code[\s]*[18][\s]*[:-
 
 module.exports = {
 	callSignRE,
-	timeRE,
 	newLineRE,
 	codeRE,
 	timeRE,

@@ -10,7 +10,7 @@ calculateTime = msg => entries =>{
 		for(i = 0 ; i < entries.length ; i++){
 			// ensure we are only adding those that exist
 			if(entries[i].code1 && entries[i].code8){
-				time += utils.diffTime(entries[i].code1,entries[i].code8)
+				time += utils.diffTime(entries[i].code1,entries[i].code8)		
 			}
 		}
 		// reply to the message, stating the total number of hours 
@@ -33,7 +33,7 @@ calculateMonth = month => msg => entries => {
 	// entries 
 	if(entries.length > 0){
 		for(i = 0 ; i < entries.length ; i++){
-			console.log(entries[i])
+			//console.log(entries[i])
 			// ensure we are only adding those that exist
 			if(entries[i].code1 && entries[i].code8 && 
 					entries[i]._timestamp.getMonth() === month){
