@@ -12,7 +12,7 @@ var uri = `mongodb+srv://${username}:${password}@timesheets-82gmj.mongodb.net/te
 
 // Object storing the collections in our database 
 const COLLECTION = {
-	timesheets: "timesheetEntriesDev",
+	timesheets: "timesheet",
 	users: "users",
 }
 const DATABASE = "TimesheetBot"
