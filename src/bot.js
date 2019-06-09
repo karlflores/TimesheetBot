@@ -63,6 +63,8 @@ async function updateAllMessages(userMessages){
 		// we just want to update each message if the contents of the message
 		// if the contents of the message is validated 
 		console.log("Currently updating ", i, userMessages[i].id) 
+		if(userMessages[i].content.search(re.formattingRE) != 0) continue;
+
 		await db.updateTimesheet(utils.createPayload(userMessages[i])).then()
 			.catch(err => {console.log(err)})
 	}
@@ -150,8 +152,7 @@ client.on('message', async msg => {
 				msg.channel.send("... database update completed ...")	
 				//console.log("fetched...")
 		})
-			
-			.catch(err => {console.error(err)})
+		.catch(err => {console.error(err)})
 	}
 })
 

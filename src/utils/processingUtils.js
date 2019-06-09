@@ -1,45 +1,56 @@
 // RegExps to validate and search for fields in the message
 const re = require('./regexp.js')
+
 /* Function parses the time in a given format */
 parseTime = function(time){
 	//console.log(time)	
 	// times will be in the format 00:00 0000 or 0:00am/pm
-	time = time.replace(":","")	
-	timeT = time.match(re.timeRE)[0]
-	//console.log(timeT)
-	//console.log(`time : ${timeT.length}`)	
+	timeRaw = time.replace(":","")	
+	timeT = timeRaw.match(re.timeRE)[0]
+	timeOnly = timeT.match(re.timeOnlyRE)[0]	
+	console.log("ORIGINAL : ",timeRaw)
+	console.log("REGEX : ", timeT)
+	console.log("TIMEONLY : ", timeOnly)
+
 	// now we have to convert the minutes and hours to ints 
-	
+	var timeObj;	
 	// if this is 24 hour time 
-	if(timeT.length === 4){
-		hours = parseInt(timeT.substring(0,2))
-		mins = parseInt(timeT.substring(2,4))
-	// if its 12 hour time, it will be either 5 or 6 chars long
-	}else if(timeT.length === 5 || timeT.length === 6){
-		hours = parseInt(timeT.substring(0,1))
-		mins = parseInt(timeT.substring(1,3))	
-		//console.log(hours, mins)
-	}
-	//console.log(hours,mins,timeT.substring(2,4))
+	timeObj = convertTime(timeOnly)
+
 	// first we have to convert the time to 24 hour time 
-	if(hours === 24) hours = 0;
-	if(time.includes("pm") && hours < 12){
-		hours = (hours + 12)%24	
-	}else if(hours == 12){
-		if(time.includes("am")){
-			hours = 0;
-		}
+	if(timeObj.hours === 24) timeObj.hours = 0;
+	
+	// convert 12 hour format to 12 hour format 
+	if(timeRaw.includes("pm") && timeObj.hours < 12){
+		timeObj.hours = (timeObj.hours + 12)%24	
+	}else if(timeObj.hours == 12 && timeRaw.includes("am")){
+		timeObj.hours = 0;
 	}
+	
+	console.log(timeObj.hours, timeObj.mins)	
 	// the date is irrelevant here, We only care for the time. 
 	var dateTimeObj = new Date()
 	dateTimeObj.setFullYear(2019,0,1)
 	dateTimeObj.setSeconds(0)
 	dateTimeObj.setMilliseconds(0)
-	dateTimeObj.setHours(hours)
-	dateTimeObj.setMinutes(mins)
-	
-	//console.log(dateTimeObj)
+	dateTimeObj.setHours(timeObj.hours)
+	dateTimeObj.setMinutes(timeObj.mins)
+	console.log(dateTimeObj)
 	return dateTimeObj	
+}
+
+convertTime = (time) => {
+	console.log(time.length)
+	var hours, mins;
+	// if the length of time is 3, then we know for sure that 
+	if(time.length === 4){
+		hours = parseInt(timeT.substring(0,2))
+		mins = parseInt(timeT.substring(2,4))
+	}else if(time.length === 3){
+		hours = parseInt(timeT.substring(0,1))
+		mins = parseInt(timeT.substring(1,3))		
+	}
+	return {hours,mins}
 }
 
 // calculate the difference in hours between two times (end - start) 
@@ -91,14 +102,14 @@ parseEntry = function(msg){
 	if(codeTimes.length === 2){
 		c1 = parseCodeTimes(codeTimes[0])
 		c2 = parseCodeTimes(codeTimes[1])
-		//console.log(c1,c2)
+		console.log(c1,c2)
 		if(c1.code.search(/code1/g) === -1 
 				&& c2.code.search(/code8/g) === -1) return null
 		return {_cid,code1:parseTime(c1.time),code8:parseTime(c2.time)};	
 	}
 	//console.log(time)
 	c1 = parseCodeTimes(codeTimes[0])
-	//console.log(c1)
+	console.log(c1)
 	if(c1.code != 'code1') return null
 	return {_cid,code1:parseTime(c1.time),code8:undefined};	
 }
