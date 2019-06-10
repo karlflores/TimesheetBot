@@ -108,7 +108,7 @@ async function updateAllUsers(userMessages){
 		}
 		userInfoSet.add(user)
 		userSet.add(user._id)
-		
+		console.log(user._cid, user._username)	
 		// now for each user we need to add them to the database of users
 		await db.updateUser(user).then().catch(err => {console.log(err)})
 	}
