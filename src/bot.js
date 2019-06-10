@@ -103,7 +103,7 @@ client.on('messageDelete', (msg)=>{
 	if(msg.content.search(re.formattingRE) === 0){
 			db.deleteMessage(msg.id)
 	}
-	msg.reply("Entry Successfully Deleted...")
+	if(!msg.author.bot) msg.reply("Entry Successfully Deleted...")
 })
 
 // Here is where we verify the message contents. We need to 
@@ -127,7 +127,7 @@ client.on('message', async msg => {
 		await db.updateTimesheet(utils.createPayload(msg))
 	 	// give feedback to say their entry is successful 	
 		msg.reply("Patrol Entry Successfully Created...")
-	}else if(msg.content === '!stat'){
+	}else if(msg.content.includes === '!stat'){
 		// find all messages with this id in the db 
 		entries = db.getUserMessages(uid,
 							callbacks.calculateTime(msg))
