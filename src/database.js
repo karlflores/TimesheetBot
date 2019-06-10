@@ -76,15 +76,39 @@ deleteUser = function(_id){
 }
 
 // create and update happen in the same function 
+async function updateUser(payload){
+
+	// lets parse the payload first 
+	query = {_id:payload._id};	
+
+	await mongo.connect(uri, connectOptions).then(async db => {
+		var dbo = db.db(DATABASE)
+		// acquire the lock 	
+		// we could try insert first and if there is an error, we 
+		await dbo.collection(COLLECTION.users).insertOne(payload)
+		.then(res => {
+			console.log(`Added ${payload._id} entry into database`);
+		})
+		.catch(async err =>{
+			// if it is a duplicate key, we just need to update the entry	
+			if(err === undefined) throw err;
+			// if it is a duplicate entry, then we know all we have to do
+			// is update it 
+			if(err.code === 11000){
+				// got here...
+				console.log("Trying to add user that already exists")
+			}
+		})
+	})
+	.catch(err => {
+		if(err) throw err		
+	})
+}
+// create and update happen in the same function 
 async function updateTimesheet(payload){
 
 	// lets parse the payload first 
 	query = {_id:payload._id};	
-	updated = {_uid:payload._uid,
-			_cid:payload._cid,
-			code1:payload.code1,
-			code8:payload.code8,
-			_username:payload._username}	
 
 	await mongo.connect(uri, connectOptions).then(async db => {
 		var dbo = db.db(DATABASE)
@@ -119,6 +143,7 @@ async function updateTimesheet(payload){
 }
 
 module.exports = {
+	updateUser,
 	updateTimesheet,
 	getUserMessages,
 	deleteMessage

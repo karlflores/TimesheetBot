@@ -49,7 +49,12 @@ async function syncAllMessages(msg){
 	
 	const filteredMessages = userMessages.filter(m => (!m.author.bot &&
 									m.content.search(re.formattingRE)===0))
+		
 	await updateAllMessages(filteredMessages)
+		.then(()=>{})
+		.catch(err => {console.error(err)})	
+	
+	await updateAllUsers(filteredMessages)
 		.then(()=>{})
 		.catch(err => {console.error(err)})	
 }
@@ -67,6 +72,45 @@ async function updateAllMessages(userMessages){
 
 		await db.updateTimesheet(utils.createPayload(userMessages[i])).then()
 			.catch(err => {console.log(err)})
+	}
+}
+
+// function to update all users in the database 
+async function updateAllUsers(userMessages){
+	var i = 0
+	console.log(`Updating ${userMessages.length} messages...`)
+	var userSet = new Set()	
+	var userInfoSet = new Set()
+	for(i = 0 ; i < userMessages.length ; i++){
+		// we just want to update each message if the contents of the message
+		// if the contents of the message is validated 
+		console.log("Currently updating ", i, userMessages[i].id) 
+		if(userMessages[i].content.search(re.formattingRE) != 0) continue;
+		
+		// create the message payload 
+		msgPayload = utils.createPayload(userMessages[i])
+		user = {
+			_id: msgPayload._uid,
+			_username: msgPayload._username,
+			_cid: msgPayload._cid,
+			admin: false,
+			moderator: false,
+		}	
+		// get the username, uid and callsign, initially set the admin/mod 
+		// flag to false
+		// first check if uid is in userSet 
+		if(userSet.has(msgPayload._uid)){
+			// check if this payload is already in the userInfoSet,
+			// if it is, then there is some sort of error in the callsign
+			// need to manually recify this in the database 
+			if(!userInfoSet.has(user)) console.error("CALLSIGN ERROR: ", 
+								user._username, " : ", user._cid)
+		}
+		userInfoSet.add(user)
+		userSet.add(user._id)
+		
+		// now for each user we need to add them to the database of users
+		await db.updateUser(user).then().catch(err => {console.log(err)})
 	}
 }
 
@@ -127,7 +171,7 @@ client.on('message', async msg => {
 		await db.updateTimesheet(utils.createPayload(msg))
 	 	// give feedback to say their entry is successful 	
 		msg.reply("Patrol Entry Successfully Created...")
-	}else if(msg.content.includes === '!stat'){
+	}else if(msg.content === '!time'){
 		// find all messages with this id in the db 
 		entries = db.getUserMessages(uid,
 							callbacks.calculateTime(msg))
@@ -137,12 +181,10 @@ client.on('message', async msg => {
 
 		entries = db.getUserMessages(uid,
 							callbacks.calculateMonth(currMonth)(msg))
-	}else if(msg.content === '!rank'){
-			
+	}else if(msg.content === '!rankings'){
+	
 	}else if(msg.content === '!callsign'){
-				
-	}else if(msg.content === '!setCallsign'){
-					
+		// print your callsign		
 	}else if(msg.content === '!help'){
 		msg.channel.send(helpMessage)
 	}else if(msg.content === '!format'){
@@ -153,8 +195,12 @@ client.on('message', async msg => {
 				//console.log("fetched...")
 		})
 		.catch(err => {console.error(err)})
+	}else if (msg.content === '!addAllUsers' && whiteList.includes(msg.author.username)){
+		// go through every message sent and add all users to the database
 	}
 })
+
+// when you add a memeber to the database, add them to the database, -- admin can set their callsign 
 
 client.on('guildMemberAdd', member => {
 	console.log(member)
