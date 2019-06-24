@@ -3,6 +3,7 @@ require('dotenv').config()
 const fs = require('fs')
 const db = require('./database.js')
 const re = require('./utils/regexp.js')
+const reports = require('./utils/reports.js')
 const utils = require('./utils/processingUtils.js')
 const callbacks = require('./utils/callbacks.js')
 const Discord = require('discord.js')
@@ -11,7 +12,6 @@ const client = new Discord.Client()
 // loading the help and formatting messages 
 var helpMessage = fs.readFileSync('./public/help.csv').toString()
 var formatMessage = fs.readFileSync('./public/format.csv').toString()
-var whiteList = fs.readFileSync('./public/whitelist.csv').toString()
 
 // function to sync all messages in a discord channel with the database
 async function syncAllMessages(msg){
@@ -99,6 +99,7 @@ async function updateAllUsers(userMessages){
 		// get the username, uid and callsign, initially set the admin/mod 
 		// flag to false
 		// first check if uid is in userSet 
+		// TODO - WE NEED TO LOOK AT A BETTER WAY TO DO THIS 
 		if(userSet.has(msgPayload._uid)){
 			// check if this payload is already in the userInfoSet,
 			// if it is, then there is some sort of error in the callsign
@@ -106,6 +107,7 @@ async function updateAllUsers(userMessages){
 			if(!userInfoSet.has(user)) console.error("CALLSIGN ERROR: ", 
 								user._username, " : ", user._cid)
 		}
+
 		userInfoSet.add(user)
 		userSet.add(user._id)
 		console.log(user._cid, user._username)	
@@ -113,6 +115,8 @@ async function updateAllUsers(userMessages){
 		await db.updateUser(user).then().catch(err => {console.log(err)})
 	}
 }
+
+
 
 // login to the server that we want to connect to 
 client.on('ready', () => {
@@ -189,14 +193,57 @@ client.on('message', async msg => {
 		msg.channel.send(helpMessage)
 	}else if(msg.content === '!format'){
 		msg.channel.send(formatMessage)
-	}else if (msg.content === '!sync' && whiteList.includes(msg.author.username)){
-		syncAllMessages(msg).then(() => {	
-				msg.channel.send("... database update completed ...")	
-				//console.log("fetched...")
+	}else if (msg.content === '!sync'){
+		console.log('got here')
+
+		// only let admins sync the database 
+		db.findUser(msg.author.id, user =>{
+			if(user.admin){
+				syncAllMessages(msg).then(() => {	
+						msg.channel.send("... database update completed ...")	
+						//console.log("fetched...")
+				})
+				.catch(err => {console.error(err)})
+			}
+			console.log(`User ${msg.author.id} tried to sync without admin access`)
 		})
-		.catch(err => {console.error(err)})
-	}else if (msg.content === '!addAllUsers' && whiteList.includes(msg.author.username)){
+
+	}else if (msg.content === '!addAllUsers'){
 		// go through every message sent and add all users to the database
+		db.findUser(msg.author.id, user =>{
+			if(user.admin){
+				console.log("adding all users...")
+			}
+			console.log(`User ${msg.author.id} tried to sync without admin access`)
+		})
+	}else if(msg.content.search(/\!report/gmi) === 0){
+		// send a xlsx report of all the hours completed in the server 
+		db.findUser(msg.author.id, user =>{
+			if(user.admin){	
+				var commands = msg.content.split(" ");
+				if(commands.length == 2){
+					// create a csv file of each user and their hours 
+					command = commands[1];
+					if(command === 'fortnight'){		 
+						query = reports.fortnightPred()						
+					}else if(command === 'week'){
+						query = reports.weekPred()
+					}else if(command === 'year'){
+						query = reports.yearPred()
+					}else if(command === 'all'){
+						// get all messages from timestamp 0
+						query = {'_timestamp' : {$gt: new Date(0)}}
+					}else{
+						// default to month 
+						query = reports.monthPred()
+					}	
+					reports.timeReport(msg.author)(query)	
+					return 
+				}
+				// default behaviour is monthly stats 
+				reports.timeReport(msg.author)(reports.monthPred())
+			}
+		})
 	}
 })
 

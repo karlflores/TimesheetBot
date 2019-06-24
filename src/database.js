@@ -40,13 +40,36 @@ findAllFromCollection = (collection, query, callback) => {
 	});		
 }
 
+// need to check if this works --> might have to get rid of the asyncs
+findUser = async (_id, callback) => {
+	_res = await mongo.connect(uri, connectOptions, function(err, db) {
+		var dbo = db.db(DATABASE)
+		if (err) throw err;
+		dbo.collection(COLLECTION.users).findOne({_id}).then( async res =>{
+			// if we have found a user then we can just use the callback on that user 
+			if(res) await callback(res);	
+			console.log(res)
+		})
+		.catch(err => {
+			if(err) throw err;
+			console.log(`Entry (${_id}) Deleted...`)
+		})	
+		db.close();
+	});	
+}
+
+getMessagesQuery = (query, callback) => {
+	console.log(query)
+	findAllFromCollection(COLLECTION.timesheets, query, callback);
+}
+
 // get all user messages from the database given a uri 
 getUserMessages = (_uid,callback) => {
 	findAllFromCollection(COLLECTION.timesheets, {_uid}, callback);
 }
 
-getAllUsers = (_uid,callback) => {
-	findAllFromCollection(COLLECTION.users, {_uid}, callback);
+getAllUsers = callback => {
+	findAllFromCollection(COLLECTION.users, {}, callback);
 }
 
 // function to delete a message using its message id
@@ -73,6 +96,23 @@ deleteUser = function(_id){
 			db.close();
 		})	
 	});	
+}
+
+// create/update a message in the db if and only if the callsign matches the 
+// user that sent it 
+async function safeUpdateUser(payload){
+	await this.findUser({_uid:payload._uid}, async user=>{
+		if(payload._cid == user._cid) {
+			// then it is safe to update
+			updateUser(payload).then(()=>{
+				console.log("UPDATED...")
+			})
+			.catch(()=>{
+				console.error("WRONG CALLSIGN, need to change")
+			})
+		}
+		console.log("User needs to edit their callsign...")
+	}) 
 }
 
 // create and update happen in the same function 
@@ -104,12 +144,15 @@ async function updateUser(payload){
 		if(err) throw err		
 	})
 }
+
 // create and update happen in the same function 
 async function updateTimesheet(payload){
 
 	// lets parse the payload first 
 	query = {_id:payload._id};	
 
+	// we only want to update the database if the id matches the call sign in the database 
+	
 	await mongo.connect(uri, connectOptions).then(async db => {
 		var dbo = db.db(DATABASE)
 		// acquire the lock 	
@@ -144,7 +187,10 @@ async function updateTimesheet(payload){
 
 module.exports = {
 	updateUser,
+	getMessagesQuery,
+	getAllUsers,
 	updateTimesheet,
 	getUserMessages,
-	deleteMessage
+	deleteMessage,
+	findUser
 }

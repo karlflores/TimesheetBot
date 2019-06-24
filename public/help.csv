@@ -2,6 +2,6 @@ TimesheetBot Commands Help:
 
 !help - Bring up a list of commands
 !format - The way you should format the timesheet entries
-!stat - Find the number of hours you have been on patrol
+!time - Find the number of hours you have been on patrol
 !month - duty hours for the current month
 !sync - sync the database with all entries in the channel
