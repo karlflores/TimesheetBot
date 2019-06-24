@@ -39,7 +39,7 @@ fortnightPred = () => {
 }
 
 // do a simple time report 
-timeReport = author => pred => {
+timeReport = sendTitle => author => pred => {
     // get all the message in the database 
     db.getMessagesQuery(pred, arr => {
 
@@ -64,11 +64,14 @@ timeReport = author => pred => {
             fs.writeFileSync('./public/report.csv',str);
 
             // send the file of all duty times 
-            author.send({files: ['./public/report.csv']})
+            author.send(capitalize(sendTitle) + " report: ", {files: ['./public/report.csv']})
         
         
         })
     })
+}
+capitalize = string => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // convert the officer dict that stores the compiled hours, patrols to a sorted list 
