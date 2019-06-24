@@ -225,18 +225,24 @@ client.on('message', async msg => {
 					// create a csv file of each user and their hours 
 					command = commands[1];
 					if(command === 'fortnight'){		 
+						msg.author.send('Fortnight report sending: ')
 						query = reports.fortnightPred()						
 					}else if(command === 'week'){
+						msg.author.send('Week report sending: ')
 						query = reports.weekPred()
 					}else if(command === 'year'){
+						msg.author.send('Year report sending: ')
 						query = reports.yearPred()
 					}else if(command === 'all'){
+						msg.author.send('Complete report sending: ')
 						// get all messages from timestamp 0
 						query = {'_timestamp' : {$gt: new Date(0)}}
 					}else{
 						// default to month 
+						msg.author.send('Month report sending: ')
 						query = reports.monthPred()
 					}	
+					msg.author.send('Month report sending: ')
 					reports.timeReport(msg.author)(query)	
 					return 
 				}

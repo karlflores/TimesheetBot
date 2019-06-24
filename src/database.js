@@ -100,8 +100,9 @@ deleteUser = function(_id){
 
 // create/update a message in the db if and only if the callsign matches the 
 // user that sent it 
+// need to test this function
 async function safeUpdateUser(payload){
-	await this.findUser({_uid:payload._uid}, async user=>{
+	await this.findUser({_id:payload._uid}, async user=>{
 		if(payload._cid == user._cid) {
 			// then it is safe to update
 			updateUser(payload).then(()=>{
