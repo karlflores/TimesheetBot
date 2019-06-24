@@ -241,7 +241,7 @@ client.on('message', async msg => {
 					return 
 				}
 				// default behaviour is monthly stats 
-				reports.timeReport(command)(msg.author)(reports.monthPred())
+				reports.timeReport('month')(msg.author)(reports.monthPred())
 			}
 		})
 	}
