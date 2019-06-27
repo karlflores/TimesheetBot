@@ -15,7 +15,7 @@ calculateTime = msg => entries =>{
 		}
 		// reply to the message, stating the total number of hours 
 		// patrolled
-		msg.reply(`${time.toFixed(2)} hours on patrol.`)
+		msg.reply(`**${time.toFixed(2)}** hours on patrol.`)
 	}else{
 		msg.reply(`No patrols completed...`)
 	}		
@@ -44,7 +44,7 @@ calculateMonth = month => msg => entries => {
 		}
 		// reply to the message, stating the total number of hours 
 		// patrolled
-		msg.reply(`${time.toFixed(2)} hours on patrol this month.`)
+		msg.reply(`**${time.toFixed(2)}** hours on patrol this month.`)
 	}else{
 		msg.reply(`No patrols completed...`)
 	}		
