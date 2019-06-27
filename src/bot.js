@@ -185,17 +185,17 @@ client.on('message', async msg => {
 
 		entries = db.getUserMessages(uid,
 							callbacks.calculateMonth(currMonth)(msg))
-	}else if(msg.content === '!rankings'){
 	
 	}else if(msg.content === '!callsign'){
 		// print your callsign		
+		db.findUser(msg.author.id, user =>{
+			msg.reply(` **[${user._cid.toUpperCase()}]**`)
+		})
 	}else if(msg.content === '!help'){
 		msg.channel.send(helpMessage)
 	}else if(msg.content === '!format'){
 		msg.channel.send(formatMessage)
 	}else if (msg.content === '!sync'){
-		console.log('got here')
-
 		// only let admins sync the database 
 		db.findUser(msg.author.id, user =>{
 			if(user.admin){
@@ -205,17 +205,80 @@ client.on('message', async msg => {
 				})
 				.catch(err => {console.error(err)})
 			}
-			console.log(`User ${msg.author.id} tried to sync without admin access`)
+			else console.log(`User ${msg.author.id} tried to sync without admin access`)
 		})
 
-	}else if (msg.content === '!addAllUsers'){
-		// go through every message sent and add all users to the database
-		db.findUser(msg.author.id, user =>{
-			if(user.admin){
-				console.log("adding all users...")
-			}
-			console.log(`User ${msg.author.id} tried to sync without admin access`)
-		})
+	}else if (msg.content.search(/\!setCallsign/gmi) === 0){
+		// set a particular callsign for an individual
+		var firstMention = msg.mentions.members.first()
+
+		// get the user_id, 
+		// set admin priveledges to false
+		
+		// if the person has mentioned a user, find the user 
+		// in the DB 
+		// only let admins sync the database 
+		if(firstMention){
+			db.findUser(msg.author.id, user =>{
+				if(user.admin){
+					db.findUser(firstMention.id, user =>{
+						if(!user) return;
+						// get the callsign and put it in the user object
+						// then we can send that user object back to the database
+						tokens = msg.content.toLowerCase().split(' ').filter(w => w.length > 0)
+						console.log(tokens)
+						if(tokens.length == 3){
+							callsign = tokens[2]
+							if(callsign.search(re.callSignRE) === 0){
+								user._cid = callsign;
+								console.log(callsign)
+								msg.channel.send(callsign)
+							}
+						}
+						db.updateUser(user)
+					})
+						
+				}
+			})
+		}
+
+	}else if (msg.content.search(/\!makeAdmin/gmi) === 0){
+		// set a particular callsign for an individual
+		var firstMention = msg.mentions.members.first()
+
+		if(firstMention){
+			db.findUser(msg.author.id, user =>{
+				if(user.admin){
+					db.findUser(firstMention.id, user =>{
+						if(!user) return;
+						// get the callsign and put it in the user object
+						// then we can send that user object back to the database
+						user.admin = true
+						db.updateUser(user)
+					})
+						
+				}
+			})
+		}
+	}else if (msg.content.search(/\!unmakeAdmin/gmi) === 0){
+		// set a particular callsign for an individual
+		var firstMention = msg.mentions.members.first()
+
+		if(firstMention){
+			db.findUser(msg.author.id, user =>{
+				if(user.admin){
+					db.findUser(firstMention.id, user =>{
+						if(!user) return;
+						if(!user.admin) return;
+						// get the callsign and put it in the user object
+						// then we can send that user object back to the database
+						user.admin = false
+						db.updateUser(user)
+					})
+						
+				}
+			})
+		}
 	}else if(msg.content.search(/\!report/gmi) === 0){
 		// send a xlsx report of all the hours completed in the server 
 		db.findUser(msg.author.id, user =>{

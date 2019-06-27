@@ -1,7 +1,16 @@
-TimesheetBot Commands Help:
+**TimesheetBot Commands Help**:
+---------------------------------------------------------
+**!help** - Bring up a list of commands
+**!format** - The way you should format the timesheet entries
+**!time** - Find the number of hours you have been on patrol
+**!month** - duty hours for the current month
+**!sync** - sync the database with all entries in the channel
+**!callsign** - print your callsign
 
-!help - Bring up a list of commands
-!format - The way you should format the timesheet entries
-!time - Find the number of hours you have been on patrol
-!month - duty hours for the current month
-!sync - sync the database with all entries in the channel
+*Admin Functions*
+---------------------------------------------------------
+**!setCallsign** <@user> <callsign>- set the callsign of a specific user in the channel in the form X-000
+**!makeAdmin** <@user> - make a user an admin of the bot 
+**!removeAdmin** <@user> - remove admin powers from a specific user 
+**!report** *<month/week/fortnightyear/all>* - generate a csv file of duty hours of all police officers
+

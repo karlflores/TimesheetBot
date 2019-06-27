@@ -136,6 +136,13 @@ async function updateUser(payload){
 			// if it is a duplicate entry, then we know all we have to do
 			// is update it 
 			if(err.code === 11000){
+				// need to do this update correctly TODO 
+				updated = {_cid: payload._cid}
+				await dbo.collection(COLLECTION.users)
+						.updateOne(query,{$set:updated})
+				.then(res => {
+					console.log(`Updated ${payload._id} entry`);	
+				})
 				// got here...
 				console.log("Trying to add user that already exists")
 			}
