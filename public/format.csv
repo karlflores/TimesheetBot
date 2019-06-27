@@ -2,22 +2,22 @@ ENTRIES SHOULD BE FORMATTED AS FOLLOWS:
 
 					*<Callsign>
 					Code 1 : <time>
-					Code 8: <time>*
+					Code 8 : <time>*
 
 Example:
 
 					*X-900
 					Code 1 : 02:00
-					Code 8: 10:00*
+					Code 8 : 10:00*
 
 Note, it can also be done in one line or two lines as follows:
 
-					*X-900 Code 1 : 02:00 Code 8: 10:00*
+					*X-900 Code 1 : 2:00am Code 8: 10:00pm*
 
 					or 
 
 					*X-900 
-					Code 1 : 02:00 Code 8: 10:00*
+					Code 1 : 0200 Code 8: 2200*
 
 1.  Capitalization does not matter
 2a. Your Code 8 should be an edit to your initial Code 1 entry. 
