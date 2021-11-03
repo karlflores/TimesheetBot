@@ -11,7 +11,7 @@
     "dotenv": "^8.0.0",
     "mongodb": "^3.2.6",
     "mongoose": "^5.5.12",
-    "validator": "^11.0.0",
+    "validator": "^13.7.0",
     "xlsx": "^0.14.3"
   },
   "devDependencies": {
